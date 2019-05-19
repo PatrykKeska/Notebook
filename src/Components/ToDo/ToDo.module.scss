@@ -11,20 +11,21 @@ $desktop-view : "only screen and (min-width : 801px)";
     background-position: center;
     text-align: center;
     position: relative;
-    animation: renderAnimation .4s linear;
+    animation: renderAnimation .4s ease-out;
 
 
 
     @media#{$mobile-view} {
-        background-image: url('../../Assets/Img/Contacts/paper640.jpg')
+        background-image: url('../../Assets/Img/ToDo/taskBoard640.jpg')
     }
 
     @media#{$desktop-view} {
-        background-image: url('../../Assets/Img/Contacts/paper1280.jpg')
+        background-image: url('../../Assets/Img/ToDo/taskBoard1280.jpg')
     }
 
 
 }
+
 
 
 @keyframes renderAnimation {
