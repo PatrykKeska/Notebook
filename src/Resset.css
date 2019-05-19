@@ -1,0 +1,33 @@
+/* font-family: 'Baloo Bhai', cursive;
+font-family: 'Maiden Orange', cursive; */
+
+
+@import url('https://fonts.googleapis.com/css?family=Baloo+Bhai|Maiden+Orange&display=swap&subset=latin-ext');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+html {
+  font-size: 17px;
+  font-family: 'Maiden Orange', cursive;
+
+}
+
+@media (max-width: 500px) {
+  html {
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 800px) {
+  html {
+    font-size: 15px;
+  }
+}

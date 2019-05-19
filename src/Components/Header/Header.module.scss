@@ -1,0 +1,42 @@
+$mobile-view : "only screen and (max-width : 800px)";
+$desktop-view : "only screen and (min-width : 801px)";
+
+
+
+.wrapper {
+    width: 100vw;
+    overflow: hidden;
+    height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: relative;
+
+
+
+    @media#{$mobile-view} {
+        background-image: url('../../Assets/Img//Header/Notebook640.jpg');
+    }
+
+    @media#{$desktop-view} {
+        background-image: url('../../Assets/Img//Header/Notebook1280.jpg');
+    }
+
+
+
+    .wrapper__h1 {
+        font-family: 'Baloo Bhai', cursive;
+        font-size: 1rem;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        background-color: rgba(0, 0, 0, .5);
+        color: white;
+        padding: 1rem;
+        width: 100%;
+    }
+
+
+}
