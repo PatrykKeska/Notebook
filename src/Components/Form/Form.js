@@ -12,8 +12,21 @@ const Form = () => {
                 name='name'
                 placeholder='name'
                 type='text'
-
+                tag = 'input'
             />
+            <Input
+                name='phoneNumber'
+                placeholder='Phone number'
+                type='number'
+                tag = 'input'
+            />
+            <Input
+                name='description'
+                placeholder='description...'
+                type='text'
+                tag = 'textarea'
+            />
+
 
 
 

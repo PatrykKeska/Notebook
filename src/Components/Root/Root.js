@@ -8,14 +8,37 @@ import Form from '../Form/Form'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 
-function Root() {
+class Root extends React.Component{
+state={ 
+  initial : [
+
+    {name : 'Patryk',
+     phoneNumber : 12121212, 
+     description : 'description for contact',
+     id : 0, 
+  },
+    {name : 'Kinga',
+     phoneNumber : 121312312, 
+     description : 'description for contact',
+     id :1, 
+  },
+
+  ]
+}
+
+  render(){
+
+  
   return (
     <BrowserRouter>
       <>
         <Navigation />
         <Switch>
           <Route exact path='/' component={Header} />
-          <Route path='/Contacts' component={Contacts} />
+          <Route path='/Contacts'
+          render ={(props) => (<Contacts {...props} data={this.state.initial} />)}
+          />
+
           <Route path='/ToDo' component={ToDo} />
         </Switch>
         <Form />
@@ -23,6 +46,7 @@ function Root() {
 
     </BrowserRouter>
   );
+}
 }
 
 export default Root;
