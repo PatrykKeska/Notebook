@@ -7,9 +7,9 @@ const Navigation = () => {
     return (
         <nav >
             <ul className={styles.wrapper}>
-                <li><NavLink to='/'>Main</NavLink></li>
-                <li><NavLink to='/Contacts'>Contacts</NavLink></li>
-                <li><NavLink to='/ToDo'>ToDo</NavLink></li>
+                <li><NavLink exact activeClassName={styles.activeLink} to='/'>Main</NavLink></li>
+                <li><NavLink activeClassName={styles.activeLink} to='/Contacts'>Contacts</NavLink></li>
+                <li><NavLink activeClassName={styles.activeLink} to='/ToDo'>ToDo</NavLink></li>
 
 
 

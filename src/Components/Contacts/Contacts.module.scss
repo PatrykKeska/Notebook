@@ -11,7 +11,7 @@ $desktop-view : "only screen and (min-width : 801px)";
     background-position: center;
     text-align: center;
     position: relative;
-    animation: renderAnimation .4s linear;
+    animation: renderAnimation .4s ease-in;
 
 
 
@@ -30,11 +30,11 @@ $desktop-view : "only screen and (min-width : 801px)";
 @keyframes renderAnimation {
     0% {
         opacity: 0;
-        transform: scale(0)
+        transform: translate(80vw, 0)
     }
 
     100% {
         opacity: 1;
-        transform: scale(1)
+        transform: translate(0, 0)
     }
 }

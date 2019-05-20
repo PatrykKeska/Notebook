@@ -4,7 +4,7 @@
     top: 2%;
     left: 5%;
     z-index: 2;
-    animation: renderAnimation .5s linear;
+
 
     li {
         display: inline-block;
@@ -16,6 +16,11 @@
             text-decoration: none;
             color: white;
             display: inline-block;
+            font-size: 1.2rem;
+        }
+
+        .activeLink {
+            animation: renderAnimation .5s linear forwards;
         }
     }
 }
@@ -23,11 +28,12 @@
 @keyframes renderAnimation {
     0% {
         opacity: 0;
-        transform: translate(100px, 0)
+        border-bottom: none;
+
     }
 
     100% {
         opacity: 1;
-        transform: translate(0, 0)
+        color: yellowgreen
     }
 }
