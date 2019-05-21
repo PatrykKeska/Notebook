@@ -4,7 +4,12 @@ import Button from '../Button/Button';
 import Input from '../Form/Input/Input'
 
 
-const Form = () => {
+class Form extends React.Component {
+
+    state = {
+        
+    } 
+    render(){
     return (
         <form className={styles.wrapper}>
 
@@ -35,6 +40,7 @@ const Form = () => {
             <Button>Add New Item</Button>
         </form>
     )
+    }
 }
 
 

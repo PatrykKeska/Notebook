@@ -2,7 +2,7 @@ import React from 'react'
 import styles from '../Button/Button.module.scss'
 
 
-const Button = ({ children, href, }) => (
+const Button = ({ children, href, ...props }) => (
 
     <>
         {
@@ -14,7 +14,7 @@ const Button = ({ children, href, }) => (
                     {children}
                 </a>
             ) : (
-                    <button className={styles.Button__button}>{children}</button>
+                    <button className={styles.Button__button} {...props}>{children}</button>
                 )
         }
     </>)

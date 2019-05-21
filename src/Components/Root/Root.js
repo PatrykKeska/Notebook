@@ -5,6 +5,7 @@ import Header from '../Header/Header'
 import Contacts from '../Contacts/Contacts'
 import ToDo from '../ToDo/ToDo'
 import Form from '../Form/Form'
+import Modal from '../Modal/Modal'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 
@@ -23,16 +24,36 @@ state={
      id :1, 
   },
 
-  ]
+  ], 
+
+ isModalOpen : false, 
 }
 
-  render(){
 
+
+closeModal =()=>{ 
+  this.setState({ 
+    isModalOpen : false, 
+  })
+}
+openModal =()=>{ 
+
+  this.setState({ 
+    isModalOpen : true, 
+  })
+}
+
+
+
+  render(){
+    const {isModalOpen} = this.state
   
   return (
     <BrowserRouter>
       <>
-        <Navigation />
+        <Navigation  openModal = {this.openModal} />
+        {isModalOpen ? <Modal closeModal = {this.closeModal}/> : null}
+
         <Switch>
           <Route exact path='/' component={Header} />
           <Route path='/Contacts'
