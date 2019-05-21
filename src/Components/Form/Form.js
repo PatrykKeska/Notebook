@@ -7,17 +7,26 @@ import Input from '../Form/Input/Input'
 class Form extends React.Component {
 
     state = {
-        
+        name : ' ',
+        phoneNumber : ' ', 
+        description : ' ',
+        value : ' ',
+     
     } 
+
+
+
+
     render(){
     return (
-        <form className={styles.wrapper}>
-
+        <form onSubmit={this.props.handleSubmit} 
+        className={styles.wrapper}>
             <Input
                 name='name'
                 placeholder='name'
                 type='text'
                 tag = 'input'
+            
             />
             <Input
                 name='phoneNumber'
@@ -32,12 +41,7 @@ class Form extends React.Component {
                 tag = 'textarea'
             />
 
-
-
-
-
-
-            <Button>Add New Item</Button>
+            <Button type='submit'>Add New Item</Button>
         </form>
     )
     }

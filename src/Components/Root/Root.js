@@ -4,7 +4,6 @@ import Navigation from '../Navigation/Navigation'
 import Header from '../Header/Header'
 import Contacts from '../Contacts/Contacts'
 import ToDo from '../ToDo/ToDo'
-import Form from '../Form/Form'
 import Modal from '../Modal/Modal'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
@@ -30,6 +29,25 @@ state={
 }
 
 
+handleSubmit = (e)=>{ 
+  e.preventDefault(); 
+
+  const newItem = { 
+      name : e.target[0].value, 
+      phoneNumber : e.target[1].value, 
+      description : e.target[2].value, 
+      id: this.state.initial.length, 
+  }
+
+
+
+ this.setState({ 
+  initial : [...this.state.initial, newItem]
+ })
+
+ e.target.reset()
+}
+
 
 closeModal =()=>{ 
   this.setState({ 
@@ -52,7 +70,7 @@ openModal =()=>{
     <BrowserRouter>
       <>
         <Navigation  openModal = {this.openModal} />
-        {isModalOpen ? <Modal closeModal = {this.closeModal}/> : null}
+        {isModalOpen ? <Modal handleSubmit={this.handleSubmit} closeModal = {this.closeModal}/> : null}
 
         <Switch>
           <Route exact path='/' component={Header} />
@@ -62,7 +80,6 @@ openModal =()=>{
 
           <Route path='/ToDo' component={ToDo} />
         </Switch>
-        <Form />
       </>
 
     </BrowserRouter>

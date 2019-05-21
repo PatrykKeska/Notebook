@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from '../Input/Input.module.scss'
 
-const Input = ({ tag: Tag, name, type, placeholder }) => {
+const Input = ({ tag: Tag, name, type, placeholder,value, onChange}) => {
 
     return (
 
@@ -11,6 +11,7 @@ const Input = ({ tag: Tag, name, type, placeholder }) => {
                 <label htmlFor={name}>
                     <Tag placeholder={placeholder}
                         type={type}
+
                     />
 
                 </label>
