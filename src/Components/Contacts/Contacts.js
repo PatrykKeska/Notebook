@@ -9,7 +9,7 @@ const Contacts = ({data}) => {
 <>
 
         <section className={styles.wrapper}>
-  <ul>
+  {/* <ul>
      {data.map(item => ( 
          <Item 
          key={item.id}
@@ -19,7 +19,7 @@ const Contacts = ({data}) => {
      
          />
      ))}
-  </ul>
+  </ul> */}
      </section>
 
      </>

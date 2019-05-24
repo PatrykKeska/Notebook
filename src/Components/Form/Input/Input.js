@@ -2,7 +2,7 @@
 import React from 'react';
 import styles from '../Input/Input.module.scss'
 
-const Input = ({ tag: Tag, name, type, placeholder,value, onChange}) => {
+const Input = ({ tag: Tag, name, type, placeholder,value, onChange , className}) => {
 
     return (
 
@@ -11,6 +11,7 @@ const Input = ({ tag: Tag, name, type, placeholder,value, onChange}) => {
                 <label htmlFor={name}>
                     <Tag placeholder={placeholder}
                         type={type}
+                        className={styles.input}
 
                     />
 

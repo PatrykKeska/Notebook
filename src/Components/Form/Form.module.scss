@@ -12,21 +12,11 @@
     align-items: center;
     justify-content: center;
 
-    input {
-        background-color: transparent;
-        border: none;
-        border-bottom: 1px solid gray;
-        margin: 5px;
-        width: 60vw;
-        max-width: 600px;
+
+
+    .wrapper__radio {
+        display: inline-flex;
     }
-
-    textarea {
-        @extend input
-    }
-
-
-
 
     button {
         position: absolute;
