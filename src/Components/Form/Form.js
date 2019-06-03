@@ -6,7 +6,7 @@ import Input from '../Form/Input/Input'
 import Radio from './RadioInput.js/Radio'
 
 const types = { 
-    contact : 'contact', 
+    contacts : 'contacts', 
     todo : 'todo', 
 }
 
@@ -14,9 +14,10 @@ const types = {
 class Form extends React.Component {
 
     state = {
-       activeOption : types.contact , 
-       checked : true , 
-       value : ' ', 
+        name : '',
+        phoneNumber : '', 
+        description : '', 
+       activeOption : types.contacts , 
 
 
      
@@ -31,23 +32,32 @@ class Form extends React.Component {
     }
 
 
+handleInputChange=(e) =>{ 
+    this.setState({ 
+    [e.target.name] : e.target.value , 
+    })
+}
+
+
+
 
 
     render(){
 
  const {activeOption,} = this.state; 
 
+
     return (
 
         <AppContext.Consumer>
-            {(context)=>(<form onSubmit={context.addItem} 
+            {(context)=>(<form onSubmit={(e)=>(context.addItem(e,this.state))} 
         className={styles.wrapper}>
 
 <div className={styles.wrapper__radio}>
      <Radio
-     id= {types.contact}
-     checked={this.state.activeOption ===types.contact}
-     handleChange = {()=> this.handleRadioChange(types.contact)}
+     id= {types.contacts}
+     checked={this.state.activeOption ===types.contacts}
+     handleChange = {()=> this.handleRadioChange(types.contacts)}
     
      >
        Contact
@@ -69,21 +79,28 @@ class Form extends React.Component {
                 type='text'
                 tag = 'input'
               styles='form__input'
+              value = {this.state.name}
+              onChange={this.handleInputChange}
             
             />
-           {activeOption ===types.contact ?  <Input
+           {activeOption ===types.contacts ?  <Input
                 name='phoneNumber'
                 placeholder='Phone number'
                 type='number'
                 tag = 'input'
               styles='form__input'
+              value={this.state.phoneNumber}
+              onChange={this.handleInputChange}
             /> : null}
+
             <Input
                 name='description'
                 placeholder='description...'
                 type='text'
                 tag = 'textarea'
               styles='form__input'
+              value={this.state.description}
+              onChange={this.handleInputChange}
             />
 
             <Button type='submit'>Add New Item</Button>

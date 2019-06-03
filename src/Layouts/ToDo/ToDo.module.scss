@@ -1,0 +1,107 @@
+$mobile-view : "only screen and (max-width : 800px)";
+$desktop-view : "only screen and (min-width : 801px)";
+
+
+.wrapper {
+    width: 100vw;
+    overflow: hidden;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    position: relative;
+    animation: renderAnimation .4s ease-in;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding: 10vh 2vw;
+
+
+    li {
+        background-color: rgb(244, 239, 120);
+        min-width: 50vw;
+        min-height: 40vh;
+        padding: .1vh 5vw;
+        overflow: hidden;
+        animation: newTask .3s linear;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        flex-direction: column;
+        border-radius: 5%;
+        position: relative;
+
+        button {
+            position: absolute;
+            right: 1px;
+            top: 1px;
+
+        }
+
+
+        @media#{$desktop-view} {
+            height: 50vh;
+            width: 30vw;
+        }
+
+        h1 {
+            margin-top: 30%;
+            color: royalblue;
+
+        }
+
+        p {
+            font-weight: bold;
+        }
+
+
+
+    }
+
+
+
+    @media#{$mobile-view} {
+        // background-image: url('../../Assets/Img/ToDo/taskBoard640.jpg')
+        background-color: rgb(2, 58, 13);
+        border: 2vw rgb(104, 38, 2) solid;
+    }
+
+    @media#{$desktop-view} {
+        background-color: rgb(2, 58, 13);
+        border: 2vw rgb(104, 38, 2) solid;
+
+    }
+
+
+}
+
+
+
+@keyframes renderAnimation {
+    0% {
+        opacity: 0;
+        transform: translate(80vw, 0)
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0)
+    }
+}
+
+@keyframes newTask {
+    0% {
+        opacity: 0;
+        transform: translate3d(-2.7rem, 0, 1rem);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translate(0, 0, 0);
+    }
+}

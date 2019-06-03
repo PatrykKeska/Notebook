@@ -1,45 +1,44 @@
 import React from 'react';
-import '../Root/Root.css'
+import './Root.css'
 import AppContext from '../../context'; 
-import Navigation from '../Navigation/Navigation'
-import Header from '../Header/Header'
+import Navigation from '../../Components/Navigation/Navigation'
+import Header from '../../Components/Header/Header'
 import Contacts from '../Contacts/Contacts'
 import ToDo from '../ToDo/ToDo'
-import Modal from '../Modal/Modal'
+import Modal from '../../Components/Modal/Modal'
 import { BrowserRouter, Route, Switch } from 'react-router-dom'
 
 
 class Root extends React.Component{
 state={ 
-items : { 
-  contacts : [],
-  todo : [], 
-} ,
+
+  contacts : [
+    {
+      name : 'patryk',
+      phoneNumber : '12345678',
+      description : 'description',
+    }
+  ],
+  todo : [
+    {
+    name : 'example task',
+    description : 'example description of todo task ' , 
+    } 
+
+  ], 
+
 
  isModalOpen : false, 
 }
 
 
-handleSubmit = (e)=>{ 
+handleSubmit = (e, state)=>{ 
   e.preventDefault(); 
 
-  const newItem = { 
-      // name : e.target[0].value, 
-      // phoneNumber : e.target[1].value, 
-      // description : e.target[2].value, 
-      // id: this.state.initial.length, 
-   
-  }
+this.setState(prevState=> ({ 
+  [state.activeOption] : [...prevState[state.activeOption], state]
+}))
 
-  console.log('dziala')
-
-
-
-//  this.setState({ 
-//   initial : [...this.state.initial, newItem]
-//  })
-
-//  e.target.reset()
 }
 
 
@@ -55,15 +54,24 @@ openModal =()=>{
   })
 }
 
+removeItem = ()=>{ 
+  console.log('imgoingtoremove')
+}
+
 
 
   render(){
-    const {isModalOpen} = this.state
+    const {isModalOpen,} = this.state
+
+
 
     const contextElements = { 
       ...this.state,
-      addItem : this.handleSubmit, 
+      addItem : this.handleSubmit,
+      removeItem: this.removeItem,
               }
+
+  
   
   return (
     <BrowserRouter>
@@ -77,7 +85,9 @@ openModal =()=>{
          component={ Contacts} />
           />
 
-          <Route path='/ToDo' component={ToDo} />
+          <Route path='/ToDo'
+           render={(routeProps)=> ( <ToDo {...routeProps} todo={this.state.todo} /> )}
+          />
         </Switch>
       </AppContext.Provider>
 
